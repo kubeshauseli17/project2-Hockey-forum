@@ -35,7 +35,7 @@ fetch("https://v1.hockey.api-sports.io/{endpoint}", requestOptions)
 
 ERD
 -------------------------
-![Alt text](/home/mcpeepants/Documents/SEI808/unit2/unit2 project/tables.png)
+![](https://github.com/kubeshauseli17/project2-Hockey-forum/blob/main/tables.png)
 
 
 
@@ -54,7 +54,8 @@ DELETE | /threads/:id      | Destroy (Delete) | Delete's User's post
 
 Wireframe Views
 -------------------------
-![Alt text](/home/mcpeepants/Documents/SEI808/unit2/unit2 project/new.png)
+![](https://github.com/kubeshauseli17/project2-Hockey-forum/blob/main/new.png)
+
 
 
 
