@@ -16,7 +16,8 @@ standings and maybe the scores for any preseason games scheduled to be played. F
 application, but interesting to see how analytics departments track data betwen leagues in real time.
 
 {
-"copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
+"copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team
+ marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
 "records": [
 {
 "standingsType": "regularSeason",
@@ -84,7 +85,7 @@ application, but interesting to see how analytics departments track data betwen 
 
 Tech Used in Project
 -------------------------
-HTML - CSS - Javascript 
+HTML - CSS BOOTSTRAP - Javascript 
 Express - EJS - Sequelize
 Postgres - API-HOCKEY
 
