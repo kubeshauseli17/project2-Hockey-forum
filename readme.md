@@ -155,6 +155,8 @@ Style page nicely
 
 Add Player Stats page. Pipe information in from API-HOCKEY
 
+Figure out how to add user_avatar to users table in bytea
+
 
 Roadblocks
 -------------------------
