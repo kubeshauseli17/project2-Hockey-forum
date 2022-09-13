@@ -9,28 +9,84 @@ been a member of a hockey forum https://forums.hfboards.com/ for close to 20 yea
 
 API
 -------------------------
-The API i am planning on using is called API Hockey. https://rapidapi.com/api-sports/api/api-hockey It has
+The API i am planning on using is called StatsAPI NHL. https://statsapi.web.nhl.com/api/v1/schedule It has
 player stats and team standings going back years. It also has scores for all of the current games and 
 already played games. Seing as the season hasn't started yet I'm planning on using it for the last few years
 standings and maybe the scores for any preseason games scheduled to be played. Fairly limited scope for my 
 application, but interesting to see how analytics departments track data betwen leagues in real time.
 
-var myHeaders = new Headers();
-myHeaders.append("x-rapidapi-key", "adc5f02acfmsha3cd71d94f1b43fp1bebf1jsncd36e7ddb757");
-myHeaders.append("x-rapidapi-host", "v1.hockey.api-sports.io");
+{
+"copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
+"records": [
+{
+"standingsType": "regularSeason",
+"league": {
+"id": 133,
+"name": "National Hockey League",
+"link": "/api/v1/league/133"
+},
+"division": {
+"id": 18,
+"name": "Metropolitan",
+"nameShort": "Metro",
+"link": "/api/v1/divisions/18",
+"abbreviation": "M"
+},
+"conference": {
+"id": 6,
+"name": "Eastern",
+"link": "/api/v1/conferences/6"
+},
+"teamRecords": [
+{
+"team": {
+"id": 12,
+"name": "Carolina Hurricanes",
+"link": "/api/v1/teams/12"
+},
+"leagueRecord": {
+"wins": 54,
+"losses": 20,
+"ot": 8,
+"type": "league"
+},
+"regulationWins": 47,
+"goalsAgainst": 202,
+"goalsScored": 278,
+"points": 116,
+"divisionRank": "1",
+"divisionL10Rank": "1",
+"divisionRoadRank": "2",
+"divisionHomeRank": "1",
+"conferenceRank": "2",
+"conferenceL10Rank": "1",
+"conferenceRoadRank": "2",
+"conferenceHomeRank": "3",
+"leagueRank": "3",
+"leagueL10Rank": "2",
+"leagueRoadRank": "3",
+"leagueHomeRank": "5",
+"wildCardRank": "0",
+"row": 53,
+"gamesPlayed": 82,
+"streak": {
+"streakType": "wins",
+"streakNumber": 6,
+"streakCode": "W6"
+},
+"clinchIndicator": "y",
+"pointsPercentage": 0.7073170731707317,
+"ppDivisionRank": "1",
+"ppConferenceRank": "2",
+"ppLeagueRank": "3",
+"lastUpdated": "2022-06-27T14:40:39Z"
+},
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-fetch("https://v1.hockey.api-sports.io/{endpoint}", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-
+Tech Used in Project
+-------------------------
+HTML - CSS - Javascript 
+Express - EJS - Sequelize
+Postgres - API-HOCKEY
 
 
 ERD
