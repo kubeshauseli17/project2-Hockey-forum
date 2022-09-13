@@ -1,39 +1,52 @@
-require('dotenv').config();
-const express = require('express');
-const ejsLayouts = require('express-ejs-layouts');
-const app = express();
-const axios = require('axios')
+// required packages
+require('dotenv').config()
+const express = require('express')
+const ejsLayouts = require('express-ejs-layouts')
+const cookieParser = require('cookie-parser')
+const db = require('./models')
+const crypto = require('crypto-js')
 
-// Sets EJS as the view engine
-app.set('view engine', 'ejs');
-// Specifies the location of the static assets folder
-app.use(express.static('static'));
-// Sets up body-parser for parsing form data
-app.use(express.urlencoded({ extended: false }));
-// Enables EJS Layouts middleware
-app.use(ejsLayouts);
+console.log('server secret:', process.env.ENC_SECRET)
 
-// Adds some logging to each request
-app.use(require('morgan')('dev'));
-
-// Routes
-app.get('/', function(req, res) {
-  res.render('index.ejs')
+// config express app/middlewares
+const app = express()
+const PORT = process.env.PORT || 3000
+app.set('view engine', 'ejs')
+app.use(ejsLayouts)
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
+// our custom auth middleware
+app.use(async (req, res, next) => {
+    // console.log('hello from a middleware 👋')
+    // if there is a cookie on the incoming request
+    if (req.cookies.userId) {
+        // decrypt the user id before we look up the user in the db
+        const decryptedId = crypto.AES.decrypt(req.cookies.userId.toString(), process.env.ENC_SECRET)
+        const decryptedIdString = decryptedId.toString(crypto.enc.Utf8)
+        // look up the user in the db
+        const user = await db.user.findByPk(decryptedIdString)
+        // mount the user on the res.locals
+        res.locals.user = user
+    // if there is no cookie -- set the user to be null in the res.locals
+    } else {
+        res.locals.user = null
+    }
+    // move on to the next route or middleware in the chain
+    next()
 })
 
 
-var myHeaders = new Headers();
-myHeaders.append("x-rapidapi-key", "adc5f02acfmsha3cd71d94f1b43fp1bebf1jsncd36e7ddb757");
-myHeaders.append("x-rapidapi-host", "v1.hockey.api-sports.io");
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
+// route definitions
+app.get('/', (req, res) => {
+    // console.log('incoming cookie 🍪', req.cookies)
+    // console.log(res.locals.myData)
+    console.log('the currently logged in user is:', res.locals.user)
+    res.render('home.ejs')
+})
 
-fetch("https://v1.hockey.api-sports.io/{endpoint}", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+// Controllers
+app.use('/users', require('./controllers/users'))
 
+// listen on a port
+app.listen(PORT, () => console.log(`you or your loved ones may be entitled to compensation on port: ${PORT}`))
