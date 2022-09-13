@@ -87,7 +87,8 @@ Tech Used in Project
 -------------------------
 HTML - CSS BOOTSTRAP - Javascript 
 Express - EJS - Sequelize
-Postgres - API-HOCKEY
+Postgres - StatsAPI NHL
+Thunder Client
 
 
 ERD
@@ -127,10 +128,10 @@ As a developer I want to be able to verify the users identity and log their cont
 
 As a visitor I'd like to browse the forum. If I appreciate the content I'd like to become a member.
 
-As a thread poster I'd like to moderate the posts on my thread. Deleting posts or updating my own 
+As the thread poster I'd like to moderate the posts on my thread. Deleting posts or updating my own 
 to my needs.
 
-As a User I'd like to post a GIF on my teams game thread.
+As a User I'd like to post a GIF and comments on my teams game thread.
 
 
 MVP Goals
@@ -141,7 +142,7 @@ Log new users information and add it to the users table.
 
 Track signed in users. Allow them to post new threads and comment on other's threads. Update database with their content.
 
-Setup API-HOCKEY Pull standings and Scores from it. Use EJS to pipe the scores into a sidebar. Standings onto a Standings page
+Setup StatsAPI NHL Pull standings and Scores from it. Use EJS to pipe the scores into a sidebar. Standings onto a Standings page
 
 Redirect Visitors to the Signup page if they try to post a thread or a comment.
 
