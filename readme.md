@@ -96,6 +96,7 @@ ERD
 ![](https://github.com/kubeshauseli17/project2-Hockey-forum/blob/main/tables.png)
 
 
+
 Restful Routing
 -------------------------
 VERB   |   URL pattern     |   Action (CRUD)  |    Description
