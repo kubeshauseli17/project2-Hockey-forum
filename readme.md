@@ -99,7 +99,7 @@ ERD
 
 Restful Routing
 -------------------------
-![]()
+![](https://github.com/kubeshauseli17/project2-Hockey-forum/blob/main/restful.png)
 
 Wireframe Views
 -------------------------
