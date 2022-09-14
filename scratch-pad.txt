@@ -1,6 +1,28 @@
 USER MODEL
 ----------
+user_name: VARCHAR 255 (string)
 email: VARCHAR 255 (string)
 password: VARCHAR 255 (string)
 
-sequelize model:create --name user --attributes user_name:string,user_avatar:bytea,email:string,password:string
+
+sequelize model:create --name users --attributes user_name:string,email:string,password:string
+
+COMMENTS MODEL
+--------------
+user_name: VARCHAR 255
+user_id: INT
+content: VARCHAR 255
+thread_id: INT
+
+
+sequelize model:create --name comments --attributes user_name:string,user_id:integer,content:string,thread_id:integer
+
+
+THREADS MODEL
+-------------
+user_name: VARCHAR 255
+user_id: INT
+content: VARCHAR 255
+title: VARCHAR 255
+
+sequelize model:create --name threads --attributes user_name:string,user_id:integer,content:string,title:string
