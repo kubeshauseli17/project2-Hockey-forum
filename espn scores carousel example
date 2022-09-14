@@ -1,0 +1,179 @@
+ESPN scoreboard
+-------------------------------------------------------------------------------------------
+
+<section id="global-scoreboard" class="" role="region">
+    <button class="scoreboard-hidden-skip" data-skip="content" data-behavior="scoreboard_skipnav">
+        Skip to main content
+    </button>
+    <button class="scoreboard-hidden-skip" data-skip="nav" data-behavior="scoreboard_skipnav">
+        Skip to navigation
+    </button>
+    <div class="wrap">
+        <div class="scoreboard-content">
+            
+            <div class="scoreboard-dropdown-wrapper scoreboard-menu">
+            
+-------------------------------------------------------------------------------------------
+Date dropdown ESPN scoreboard
+-------------------------------------------------------------------------------------------
+
+<div class="dropdown-wrapper hoverable" data-behavior="button_dropdown">
+                    <button type="button" class="button button-filter dropdown-toggle sm selected-date">Sep 14</button>
+                    <ul class="dropdown-menu date-nav med"><li>
+	
+		<a href="#" data-scodate="20220913">Sep 13</a>
+	
+</li><li class="active">
+	
+		<a href="#" data-scodate="20220914">Sep 14</a>
+	
+</li><li>
+	
+		<a href="#" data-scodate="20220915">Sep 15</a>
+	
+</li></ul>
+                </div>
+                
+-------------------------------------------------------------------------------------------
+First game
+-------------------------------------------------------------------------------------------
+
+<div class="cscore nhl cscore--pregame js-show" data-id="401461452" tabindex="0">
+
+        
+    <div class="cscore_header-links cscore_header-links--two" aria-hidden="true">
+        
+
+                <a class="cscore_header-link" href="https://www.espn.com/nhl/game/_/gameId/401461452">
+                    Gamecast
+                </a>
+
+                
+
+                <a class="cscore_header-link external" target="_blank" href="https://www.vividseats.com/philadelphia-flyers-tickets-wells-fargo-center-philadelphia-parking-9-24-2022--sports-nhl-hockey/production/4005673?wsUser=717">
+                    Tickets
+                </a>
+
+                
+    </div>
+
+
+    
+
+    
+    <a class="cscore_link" data-mptype="scoreboard" href="https://www.espn.com/nhl/game/_/gameId/401461452">
+
+        <div class="cscore_overview">
+            
+    <div class="cscore_date-time" data-behavior="date_time" data-date="2022-09-24T23:00:00Z">
+        
+            <span class="cscore_date" data-dateformat="date8">9/24</span>
+        
+        <span class="cscore_time time" data-dateformat="time1">4:00 PM PT</span>
+
+        
+    </div>
+
+    <div class="cscore_info-overview">
+        
+    </div>
+
+
+
+    <div class="cscore_network ">
+        <div class="cscore_channels icon-font-before icon-play-arrow-solid-before">
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+        </div>
+
+        
+        <div class="cscore_details">
+        
+
+            
+
+            <ul class="cscore_competitors "><li class="cscore_item cscore_item--away ">
+    
+    
+        <div class="cscore_logo"><img class="cscore_image gs-logo-away  imageLoaded lazyloaded" data-lazyload="true" data-src="https://a1.espncdn.com/combiner/i?img=/i/teamlogos/nhl/500/scoreboard/bos.png&amp;h=30&amp;w=30" alt="" src="https://a1.espncdn.com/combiner/i?img=/i/teamlogos/nhl/500/scoreboard/bos.png&amp;h=30&amp;w=30"></div>
+    
+----------------------------------------------------------------------------------------------
+Scores Next
+----------------------------------------------------------------------------------------------
+
+<div class="scores-next controls">&gt;</div>
+
+
+
+    
+
+    <div class="cscore_team  icon-font-after">
+        <div class="cscore_truncate">
+            <span class="cscore_name cscore_name--long">Boston Bruins</span>
+            <span class="cscore_name cscore_name--short">Bruins</span>
+            <span class="cscore_name cscore_name--abbrev">BOS</span>
+        </div>
+        <div class="cscore_score update__score cscore_score--record ">
+
+            
+                        
+                            0-0
+                        
+                    
+		</div>
+    </div>
+</li><li class="cscore_item cscore_item--home last">
+    
+    
+        <div class="cscore_logo"><img class="cscore_image gs-logo-home  imageLoaded lazyloaded" data-lazyload="true" data-src="https://a1.espncdn.com/combiner/i?img=/i/teamlogos/nhl/500/scoreboard/phi.png&amp;h=30&amp;w=30" alt="" src="https://a1.espncdn.com/combiner/i?img=/i/teamlogos/nhl/500/scoreboard/phi.png&amp;h=30&amp;w=30"></div>
+    
+
+    
+
+    <div class="cscore_team  icon-font-after">
+        <div class="cscore_truncate">
+            <span class="cscore_name cscore_name--long">Philadelphia Flyers</span>
+            <span class="cscore_name cscore_name--short">Flyers</span>
+            <span class="cscore_name cscore_name--abbrev">PHI</span>
+        </div>
+        <div class="cscore_score update__score cscore_score--record ">
+
+            
+                        
+                            0-0
+                        
+                    
+		</div>
+    </div>
+</li></ul>
+
+            <div class="cscore_info clear">
+                
+
+ 
+            </div>
+
+			
+
+        
+        </div>
+        
+
+    
+    </a>
+    
+
+	
+
+    
+
+
+    </div>                

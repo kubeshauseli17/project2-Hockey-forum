@@ -1,0 +1,20 @@
+/* .navbar {
+justify-content: flex-end !important;
+} */
+
+.sitelinks {
+    justify-content: flex-end;
+}
+
+.sitename {
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.sitename a {
+    color: black;
+}
+
+.homepage h3 {
+    justify-content: center;
+}
