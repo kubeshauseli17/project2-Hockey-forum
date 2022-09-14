@@ -99,16 +99,7 @@ ERD
 
 Restful Routing
 -------------------------
-VERB   |   URL pattern     |   Action (CRUD)  |    Description
-------------------------------------------------------------------------
-GET    | /threads          | Index (Read)     | List all threads
-GET    | /threads/new      | New (Read)       | Shows form to create new thread
-POST   | /threads          | Create(Create)   | Creates new thread for user
-GET    | /threads/:id      | Show (Read)      | Read specific thread
-GET    | /threads/edit/:id | Edit (Read)      | Shows form for editing post
-PUT    | /threads/:id      | Update (Update)  | Updates User's post
-DELETE | /threads/:id      | Destroy (Delete) | Delete's User's post
-
+![]()
 
 Wireframe Views
 -------------------------
