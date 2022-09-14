@@ -61,7 +61,7 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         // look up the user in the db using the supplied email
-        const user = await db.user.findOne({ 
+        const user = await db.users.findOne({ 
             where: {
                 email: req.body.email
             } 
@@ -73,12 +73,12 @@ router.post('/login', async (req, res) => {
             console.log('user not found')
             res.redirect('/users/login?message=' + noLoginMessage)
         // if the user is found but has given the wrong password -- send them back to the login form
-        } else if (!bcrypt.compareSync(req.body.password, users.password)) {
+        } else if (!bcrypt.compareSync(req.body.password, user.password)) {
             console.log('wrong password')
             res.redirect('/users/login?message=' + noLoginMessage)
         // if the user is found and the supplied password matches what is in the database -- log them in
         } else {
-            const encryptedUserId = crypto.AES.encrypt(users.id.toString(), process.env.ENC_SECRET)
+            const encryptedUserId = crypto.AES.encrypt(user.id.toString(), process.env.ENC_SECRET)
             const encryptedUserIdString = encryptedUserId.toString()
             res.cookie('userId', encryptedUserIdString)
             res.redirect('/users/profile')
