@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
 
 // Controllers
 app.use('/users', require('./controllers/users'))
+// app.use('/thread', require('./controllers/thread'))
 
 // listen on a port
 app.listen(PORT, () => console.log(`you or your loved ones may be entitled to compensation on port: ${PORT}`))
