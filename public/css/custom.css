@@ -1,11 +1,14 @@
 /* .navbar {
 justify-content: flex-end !important;
 } */                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-.wrapper{background: url('public/gettyimages-166319867-2048x2048.jpg') no-repeat   center center fixed;
+.wrapper {
+    background: url("/gettyimages-166319867-2048x2048.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;}
+    background-size: 200%;
+    background-repeat: no-repeat;
+}
 
 .sitelinks {
     justify-content: flex-end;
