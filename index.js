@@ -4,6 +4,7 @@ const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
+const moment = require('moment')
 const crypto = require('crypto-js')
 
 console.log('server secret:', process.env.ENC_SECRET)
@@ -16,6 +17,14 @@ app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'));
+
+// middleware that allows us to access the 'moment' library in every EJS view
+app.use((req, res, next) => {
+    res.locals.moment = moment
+    next()
+  })
+
+
 // our custom auth middleware
 app.use(async (req, res, next) => {
     // console.log('hello from a middleware 👋')

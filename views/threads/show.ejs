@@ -1,21 +1,16 @@
-<h1><%= threads.title %> <small>by <%= threads.user.user_name() %></small></h1>
+<h1><%= thread.title %> <small>by <%= thread.user.user_name %></small></h1>
 
 <p>
-  <strong><%= moment(threads.createdAt).calendar() %></strong>
+  <strong><%= moment(thread.createdAt).calendar() %></strong>
 </p>
 
-<p><%= threads.content %></p>
+<p><%= thread.content %></p>
 
 <hr />
 
-<% if(threads.comments && threads.comments.length){ %>
-  <% threads.comments.forEach(comment => { %>
-    <p><%= comments.content %></p>
-    <p><%= comments.user_name %></p>
-  <% }) %>
-<% } %>
 
-<form method="POST" action="/threads/<%= threads.id %>/comments">
+
+<form method="POST" action="/threads/<%= thread.id %>/comments">
   <label for="name">Your name:</label>
 <input type="text" name="name">
 <label></label>
