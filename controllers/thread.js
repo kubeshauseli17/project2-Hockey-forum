@@ -5,11 +5,12 @@ const ejsLayouts = require('express-ejs-layouts')
 
 // POST /threads - create a new thread
 router.post('/', (req, res) => {
+  console.log("req.body", req.body)
     db.threads.create({
       title: req.body.title,
       content: req.body.content,
-      user_name: req.body.user_name,
-      user_id: req.body.user_id
+      user_name: req.body.userName,
+      userId: req.body.userId
     })
     .then((post) => {
       res.redirect('/')
@@ -22,27 +23,26 @@ router.post('/', (req, res) => {
   // GET /threads/new - display form for creating new threads
   router.get('/new', (req, res) => {
     if  (res.locals.user){
-      var user_name = res.locals.user.user_name;
-        res.render('threads/new', { user: user_name})
+      console.log("cookie", res.locals.user)
+        res.render('threads/new', { user: res.locals.user})
     }
   }) 
   
-//   // GET /threads/:id - display a specific thread and its comments
-//   router.get('/:id', (req, res) => {
-//     db.threads.findOne({
-//       where: { id: req.params.id },
-//       include: [db.user_id, db.comments]
-//     })
-//     .then((threads) => {
-//       if (!threads) throw Error()
-//       console.log(threads.user_id)
-//       res.render('threads/show', { user_id: user_id })
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//       res.status(400).render('main/404')
-//     })
-//   })
+  // GET /threads/:id - display a specific thread and its comments
+  router.get('/:id', (req, res) => {
+    db.thread.findOne({
+      where: { id: req.params.id },
+      include: [db.userId, db.comments]
+    })
+    .then((threads) => {
+      if (!threads) throw Error()
+      console.log(threads.id)
+      res.render('threads/show', { userId: userId })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  })
   
 //   // POST :3000/threads/:id/comments - route to save comment to
 //   router.post("/:id/comments", async (req, res) => {

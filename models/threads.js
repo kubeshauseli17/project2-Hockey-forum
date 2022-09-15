@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   threads.init({
     user_name: DataTypes.STRING,
-    user_id: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     content: DataTypes.STRING,
     title: DataTypes.STRING
   }, {

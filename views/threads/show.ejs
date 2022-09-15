@@ -1,4 +1,4 @@
-<h1><%= threads.title %> <small>by <%= threads.users.user_name() %></small></h1>
+<h1><%= threads.title %> <small>by <%= threads.user.user_name() %></small></h1>
 
 <p>
   <strong><%= moment(threads.createdAt).calendar() %></strong>

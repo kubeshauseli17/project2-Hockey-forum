@@ -11,13 +11,13 @@ module.exports = {
       user_name: {
         type: Sequelize.STRING
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER
       },
       content: {
         type: Sequelize.STRING
       },
-      thread_id: {
+      threadId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
