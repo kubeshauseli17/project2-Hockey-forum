@@ -1,6 +1,6 @@
 /* .navbar {
 justify-content: flex-end !important;
-} */
+} */                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 .wrapper{background: url('public/gettyimages-166319867-2048x2048.jpg') no-repeat   center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -11,7 +11,7 @@ justify-content: flex-end !important;
     justify-content: flex-end;
 }
 
-.sitename {
+.sitename {                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     padding-left: 20px;
     justify-content: flex-start;
 }
