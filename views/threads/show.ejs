@@ -1,38 +1,74 @@
 <div class="threadDisplay" style="color:white;">
-  <h1><%= thread.title %> <small>by <%= thread.user.user_name %></small></h1>
+  <h1>
+    <%= thread.title %> <small>by <%= thread.user_name %></small>
+  </h1>
 
   <p>
-    <strong><%= moment(thread.createdAt).calendar() %></strong>
- 
+    <strong>
+      <%= moment(thread.createdAt).calendar() %>
+    </strong>
 
-    <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
-      <label>Title</label>
-      <input type="text" name="title" value="<%= thread.title %>">
-      <label>Content</label>
-      <input type="text" name="content" value="<%= thread.content %>">
-      <input type="submit">
+
+  <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= thread.title %>">
+    <label>Content</label>
+    <input type="text" name="content" value="<%= thread.content %>">
+    <input type="submit">
   </form>
 
   <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
     <input type="submit" value="Delete">
-</form>
+  </form>
 
 
-    
+
   </p>
-  
-  <p><%= thread.content %></p>
-  
+
+  <p>
+    <%= thread.content %>
+  </p>
+
   <hr />
-  
-  
-  
+
+
+  <div class="comments">
+    <% thread.comments.forEach(comment=> { %>
+      <div>
+        <p>Poster <%= comment.user_name %>
+            <%= moment(comment.createdAt).calendar() %>
+        </p>
+        <p>
+          <%= comment.content %>
+        </p>
+
+        <p>
+        <form method="POST" action="/threads/<%= thread.id %>/<%= comment.id %>/?_method=PUT">
+          <label>Content</label>
+          <input type="text" name="content" value="<%= comment.content %>">
+          <input type="submit">
+        </form>
+        <form method="POST" action="/threads/<%= thread.id %>/<%= comment.id %>/?_method=DELETE">
+          <input type="submit" value="Delete">
+        </form>
+        </p>
+
+      </div>
+      <% }) %>
+  </div>
+
+
+
+
+
+
+
   <form method="POST" action="/threads/<%= thread.id %>/comments">
-    <input type="hidden" id="userName" name="userName" value="<%- user.user_name %>">
-    <input type="hidden" id="userId" name="userId" value="<%- user.id %>">
-  <label></label>
-  <input type="text" name="content">
-  <input type="submit">
+    <input type="hidden" id="userName" name="userName" value="<%= thread.user_name %>">
+    <input type="hidden" id="userId" name="userId" value="<%= thread.userId %>">
+    <label></label>
+    <input type="text" name="content">
+    <input type="submit">
   </form>
 
 </div>

@@ -49,6 +49,7 @@ router.post('/', (req, res) => {
       include: [db.users, db.comments]
     })
     .then((thread) => {
+      console.log(thread, thread.comments)
       if (!thread) throw Error()
       console.log(thread.id)
       res.render('threads/show', { thread: thread })
@@ -65,8 +66,9 @@ router.post('/', (req, res) => {
     //console.log new comment
     // rerender the page so user can see comment
     try {
+      console.log(req.body, "comments")
       const newComment = await db.comments.create({
-          user_name: req.body.user_name,
+          user_name: req.body.userName,
           userId: req.body.userId,
           content: req.body.content,
           threadId: req.params.id
@@ -76,10 +78,6 @@ router.post('/', (req, res) => {
         console.log(err)
     }
   })
-
-  // GET /threads/edit/:id - shows form for editing post
-
-
 
   // PUT /threads/:id - Edit users thread
 
@@ -99,18 +97,6 @@ router.post('/', (req, res) => {
     }catch(err) {
       console.log(err);
     }
-    
-    // try {
-    //   const threadToEdit = db.threads.findOne({
-    //     where: {
-    //       id: req.params.id
-    //     }
-    //   })
-    //   const newData = req.body
-    //   const changedThread = await threadToEdit.update(newData)
-    //   } catch(error) {
-    //   console.log(error)
-    // }
   })
 
 
