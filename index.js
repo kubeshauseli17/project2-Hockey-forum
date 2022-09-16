@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const moment = require('moment')
 const crypto = require('crypto-js')
+const methodOverride = require('method-override')
 
 console.log('server secret:', process.env.ENC_SECRET)
 
@@ -17,6 +18,7 @@ app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride('_method'));
 
 // middleware that allows us to access the 'moment' library in every EJS view
 app.use((req, res, next) => {

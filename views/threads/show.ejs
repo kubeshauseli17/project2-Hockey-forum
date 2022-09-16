@@ -1,21 +1,24 @@
-<h1><%= thread.title %> <small>by <%= thread.user.user_name %></small></h1>
+<div class="threadDisplay" style="color:white;">
+  <h1><%= thread.title %> <small>by <%= thread.user.user_name %></small></h1>
 
-<p>
-  <strong><%= moment(thread.createdAt).calendar() %></strong>
-</p>
+  <p>
+    <strong><%= moment(thread.createdAt).calendar() %></strong>
+    <form><button method="POST" action="/threads/<%= thread.id %>/?_method=PUT" id="Edit">Edit</button></form>
+    <form><button method="POST" action="/threads/<%= thread.id %>/?_method=DELETE" id="Delete">Delete</button></form>
+  </p>
+  
+  <p><%= thread.content %></p>
+  
+  <hr />
+  
+  
+  
+  <form method="POST" action="/threads/<%= thread.id %>/comments">
+    <input type="hidden" id="userName" name="userName" value="<%- user.user_name %>">
+    <input type="hidden" id="userId" name="userId" value="<%- user.id %>">
+  <label></label>
+  <input type="text" name="content">
+  <input type="submit">
+  </form>
 
-<p><%= thread.content %></p>
-
-<hr />
-
-
-
-<form method="POST" action="/threads/<%= thread.id %>/comments">
-  <label for="name">Your name:</label>
-<input type="text" name="name">
-<label></label>
-<input type="text" name="content">
-<input type="submit">
-</form>
-
-<a href="/">&larr; Back Home</a>
+</div>

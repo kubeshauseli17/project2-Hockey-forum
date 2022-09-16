@@ -1,6 +1,6 @@
-/* .navbar {
-justify-content: flex-end !important;
-} */                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+.navbar {
+opacity: 70%;
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 .wrapper {
     background: url("/gettyimages-166319867-2048x2048.jpg");
     -webkit-background-size: cover;
@@ -8,6 +8,16 @@ justify-content: flex-end !important;
     -o-background-size: cover;
     background-size: 200%;
     background-repeat: no-repeat;
+}
+
+.threadDisplay{
+margin-left: 50px;
+}
+
+
+.threads {
+    margin-left: 50px;
+    color: white;
 }
 
 .sitelinks {

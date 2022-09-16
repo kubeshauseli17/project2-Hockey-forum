@@ -1,11 +1,13 @@
-<h2><%= threads.title %></h2>
+<div class="threads">
+    <h2><%= threads.title %></h2>
 
-<% threads.forEach(thread => { %>
-    <div>
-        <h3><%= thread.title %></h3>
-
-        <p>Poster <%= thread.user_name %> <%= moment(thread.createdAt).calendar() %></p>
-        
+    <% threads.forEach(thread => { %>
+        <div>
+            <a href="http://localhost:3000/threads/<%= thread.id %>" style="color:white;"><h3><%= thread.title %></h3></a>
     
-    </div>
-<% }) %>
+            <p>Poster <%= thread.user_name %> <%= moment(thread.createdAt).calendar() %></p>
+            
+        
+        </div>
+    <% }) %>
+</div>

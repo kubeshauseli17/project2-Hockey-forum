@@ -3,6 +3,7 @@ const router = express.Router()
 const db = require('../models')
 const ejsLayouts = require('express-ejs-layouts')
 const moment = require('moment')
+const fs = require('fs')
 
 // GET /threads - get all threads
 router.get('/', (req, res) => {
@@ -17,12 +18,8 @@ router.get('/', (req, res) => {
 })
 
 
-
-
-
 // POST /threads - create a new thread
 router.post('/', (req, res) => {
-  console.log("req.body", req.body)
     db.threads.create({
       title: req.body.title,
       content: req.body.content,
@@ -62,7 +59,7 @@ router.post('/', (req, res) => {
   })
   
   // POST :3000/threads/:id/comments - route to save comment to
-  router.post("/:id/comments", async (req, res) => {
+  router.post('/:id/comments', async (req, res) => {
     //get data from rec.body
     //create new comment from data
     //console.log new comment
@@ -79,7 +76,41 @@ router.post('/', (req, res) => {
         console.log(err)
     }
   })
-  
-  
+
+  // GET /threads/edit/:id - shows form for editing post
+
+
+
+  // PUT /threads/:id - Edit users thread
+router.put('/:id', async (req, res) => {
+  try {
+    const threadToEdit = db.threads.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    const newData = req.body
+    const changedThread = await threadToEdit.update(newData)
+    } catch(error) {
+    console.log(error)
+  }
+})
+
+
+  // DELETE /threads/:id - Delete users thread
+  router.delete('/:id', async (req, res) => {
+    try {
+      console.log("hi")
+      const threadToDelete = await db.show.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      console.log("taco")
+      res.redirect('/')
+    } catch(error) {
+      console.log(error)
+    }
+  })  
   
   module.exports = router
