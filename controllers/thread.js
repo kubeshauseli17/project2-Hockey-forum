@@ -79,6 +79,7 @@ router.post('/', (req, res) => {
     }
   })
 
+ 
   // PUT /threads/:id - Edit users thread
 
 
@@ -98,7 +99,6 @@ router.post('/', (req, res) => {
       console.log(err);
     }
   })
-
 
 
   // DELETE /threads/:id - Delete users thread

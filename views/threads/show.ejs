@@ -1,26 +1,26 @@
 <div class="threadDisplay" style="color:white;">
-  <h1>
+  <h2>
     <%= thread.title %> <small>by <%= thread.user_name %></small>
-  </h1>
+  </h2>
 
   <p>
     <strong>
       <%= moment(thread.createdAt).calendar() %>
     </strong>
 
-
-  <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
-    <label>Title</label>
-    <input type="text" name="title" value="<%= thread.title %>">
-    <label>Content</label>
-    <input type="text" name="content" value="<%= thread.content %>">
-    <input type="submit">
-  </form>
-
-  <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
-    <input type="submit" value="Delete">
-  </form>
-
+    <% if(user.id===thread.userId){ %>
+      <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
+        <label>Title</label>
+        <input type="text" name="title" value="<%= thread.title %>">
+        <label>Content</label>
+        <input type="text" name="content" value="<%= thread.content %>">
+        <input type="submit">
+      </form>
+      <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+      </form>
+      <% } else { %>
+        <% } %>
 
 
   </p>
@@ -41,27 +41,22 @@
         <p>
           <%= comment.content %>
         </p>
-
-        <p>
-        <form method="POST" action="/threads/<%= thread.id %>/<%= comment.id %>/?_method=PUT">
-          <label>Content</label>
-          <input type="text" name="content" value="<%= comment.content %>">
-          <input type="submit">
-        </form>
-        <form method="POST" action="/threads/<%= thread.id %>/<%= comment.id %>/?_method=DELETE">
-          <input type="submit" value="Delete">
-        </form>
-        </p>
-
+        <% if(user.id===comment.userId){ %>
+          <p>
+          <form method="POST" action="/comments/<%= comment.id %>/?_method=PUT">
+            <label>Content</label>
+            <input type="text" name="content" value="<%= comment.content %>">
+            <input type="submit">
+          </form>
+          <form method="POST" action="/comments/<%= comment.id %>/?_method=DELETE">
+            <input type="submit" value="Delete">
+          </form>
+          </p>
+          <% } else { %>
+            <% } %>
       </div>
       <% }) %>
   </div>
-
-
-
-
-
-
 
   <form method="POST" action="/threads/<%= thread.id %>/comments">
     <input type="hidden" id="userName" name="userName" value="<%= thread.user_name %>">
