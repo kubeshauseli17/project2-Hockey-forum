@@ -3,8 +3,22 @@
 
   <p>
     <strong><%= moment(thread.createdAt).calendar() %></strong>
-    <form><button method="POST" action="/threads/<%= thread.id %>/?_method=PUT" id="Edit">Edit</button></form>
-    <form><button method="POST" action="/threads/<%= thread.id %>/?_method=DELETE" id="Delete">Delete</button></form>
+ 
+
+    <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
+      <label>Title</label>
+      <input type="text" name="title" value="<%= thread.title %>">
+      <label>Content</label>
+      <input type="text" name="content" value="<%= thread.content %>">
+      <input type="submit">
+  </form>
+
+  <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
+    <input type="submit" value="Delete">
+</form>
+
+
+    
   </p>
   
   <p><%= thread.content %></p>

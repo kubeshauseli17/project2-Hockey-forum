@@ -82,31 +82,47 @@ router.post('/', (req, res) => {
 
 
   // PUT /threads/:id - Edit users thread
-router.put('/:id', async (req, res) => {
-  try {
-    const threadToEdit = db.threads.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-    const newData = req.body
-    const changedThread = await threadToEdit.update(newData)
-    } catch(error) {
-    console.log(error)
-  }
-})
+
+
+  router.put('/:id', async (req, res) => {
+    try {
+      db.threads.findOne({
+        where: { id: req.params.id },
+      }).then((thread) => {
+        thread.update({
+          title: req.body.title,
+          content: req.body.content
+        }).then((result) => {
+          res.redirect(`/threads/${req.params.id}`)
+        })
+      })
+    }catch(err) {
+      console.log(err);
+    }
+    
+    // try {
+    //   const threadToEdit = db.threads.findOne({
+    //     where: {
+    //       id: req.params.id
+    //     }
+    //   })
+    //   const newData = req.body
+    //   const changedThread = await threadToEdit.update(newData)
+    //   } catch(error) {
+    //   console.log(error)
+    // }
+  })
+
 
 
   // DELETE /threads/:id - Delete users thread
   router.delete('/:id', async (req, res) => {
     try {
-      console.log("hi")
-      const threadToDelete = await db.show.destroy({
+      const threadToDelete = await db.threads.destroy({
         where: {
           id: req.params.id
         }
       })
-      console.log("taco")
       res.redirect('/')
     } catch(error) {
       console.log(error)
