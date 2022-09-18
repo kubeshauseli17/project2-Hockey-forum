@@ -43,7 +43,7 @@
         </p>
         <% if(user.id===comment.userId){ %>
           <p>
-          <form method="POST" action="/comments/<%= comment.id %>/?_method=PUT">
+          <form method="POST" action="/threads/<%= thread.id %>/comments/<%= comment.id %>/?_method=PUT">
             <label>Content</label>
             <input type="text" name="content" value="<%= comment.content %>">
             <input type="submit">

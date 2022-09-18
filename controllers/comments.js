@@ -7,6 +7,7 @@ const fs = require('fs')
 
 // GET /comments - get all comments
 
+
 router.get('/', (req, res) => {
   db.comments.findAll()
    .then((comments) => {
