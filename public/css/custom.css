@@ -10,6 +10,11 @@ opacity: 70%;
     background-repeat: no-repeat;
 }
 
+.modal{
+  --bs-modal-bg: rgb(28 78 112 / 8%) !important;
+
+}
+
 .threadDisplay{
 margin-left: 50px;
 }
