@@ -18,35 +18,36 @@
         </div>
         <!-- if the user is logged in... -->
         <!-- all data in the res.locals is usuable in the layout -->
-       <div class="sitelinks">
-        <% if (user) { %>
-            <a class="navbar-brand" href="/standings">Standings</a>
-
-            <a class="navbar-brand" href="/scores">Scores</a>
-
-            <a class="navbar-brand" href="/threads">Forum</a>
-
-            <a class="navbar-brand" href="/users/profile">Profile</a>
-
-            <a class="navbar-brand" href="/users/logout">Logout</a>
-            <% } else { %>
+        <div class="sitelinks">
+            <% if (user) { %>
                 <a class="navbar-brand" href="/standings">Standings</a>
 
                 <a class="navbar-brand" href="/scores">Scores</a>
 
                 <a class="navbar-brand" href="/threads">Forum</a>
 
-                <a class="navbar-brand" href="/users/new">Sign Up</a>
+                <a class="navbar-brand" href="/users/profile">Profile</a>
 
-                <a class="navbar-brand" href="/users/login">Login</a>
-                <% } %>
-       </div>
-     </nav>
-     <section id="hockey-scoreboard" class="" role="region">
+                <a class="navbar-brand" href="/users/logout">Logout</a>
+                <% } else { %>
+                    <a class="navbar-brand" href="/standings">Standings</a>
+
+                    <a class="navbar-brand" href="/scores">Scores</a>
+
+                    <a class="navbar-brand" href="/threads">Forum</a>
+
+                    <a class="navbar-brand" href="/users/new">Sign Up</a>
+
+                    <a class="navbar-brand" href="/users/login">Login</a>
+                    <% } %>
+                     
+    </nav>
+
+    <section id="hockey-scoreboard" class="" role="region">
         <button class="scoreboard-skip" data-skip="content" data-behavior="scoreboard_skipnav">
             Skip to upcoming games
         </button>
-        </section>
+    </section>
     <%- body %>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
