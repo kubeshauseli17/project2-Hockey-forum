@@ -5,6 +5,8 @@ const ejsLayouts = require('express-ejs-layouts')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const moment = require('moment')
+const fs = require('fs')
+const axios = require('axios')
 const crypto = require('crypto-js')
 const methodOverride = require('method-override')
 
@@ -55,6 +57,10 @@ app.get('/', (req, res) => {
     // console.log(res.locals.myData)
     console.log('the currently logged in user is:', res.locals.user)
     res.render('home.ejs')
+})
+
+app.get('/standings', (req, res) => {
+    res.render('standings.ejs')
 })
 
 // Controllers
