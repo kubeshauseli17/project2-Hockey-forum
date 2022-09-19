@@ -9,18 +9,38 @@
     </strong>
 
     <% if(user.id===thread.userId){ %>
-      <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
-        <label>Title</label>
-        <input type="text" name="title" value="<%= thread.title %>">
-        <label>Content</label>
-        <input type="text" name="content" value="<%= thread.content %>">
-        <input type="submit">
-      </form>
-      <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
-        <input type="submit" value="Delete">
-      </form>
-      <% } else { %>
-        <% } %>
+
+      <div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editThread">
+          Edit Thread
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editThread" tabindex="-1" aria-labelledby="editThreadLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editThreadLabel">Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
+                <input type="text" name="title" class="modal-body" value="<%= thread.title %>">
+                <input type="text" name="content" class="modal-body" value="<%= thread.content %>">
+                <input type="submit">
+              </form>
+              <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
+                <input type="submit" value="Delete Thread">
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } else { %>
+          <% } %>
 
 
   </p>
@@ -48,12 +68,13 @@
                 <h5 class="modal-title" id="editCommentLabel">Comment</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                ...
-              </div>
+              <form method="POST" action="/comments/<%= comment.id %>/?_method=PUT">
+                <input type="text" name="content" class="modal-body" value="<%= comment.content %>">
+                <input type="submit">
+              </form>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
               </div>
             </div>
           </div>
