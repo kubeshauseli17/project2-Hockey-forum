@@ -7,108 +7,116 @@
     <strong>
       <%= moment(thread.createdAt).calendar() %>
     </strong>
-
-    <% if(user.id===thread.userId){ %>
-
-      <div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editThread">
-          Edit Thread
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="editThread" tabindex="-1" aria-labelledby="editThreadLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="editThreadLabel">Comment</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
-                <input type="text" name="title" class="modal-body" value="<%= thread.title %>">
-                <input type="text" name="content" class="modal-body" value="<%= thread.content %>">
-                <input type="submit">
-              </form>
-              <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
-                <input type="submit" value="Delete Thread">
-              </form>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <% } else { %>
-          <% } %>
-
-
   </p>
-
   <p>
     <%= thread.content %>
   </p>
+  <% if(user.id===thread.userId){ %>
 
+    <div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editThread">
+        Edit Thread
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="editThread" tabindex="-1" aria-labelledby="editThreadLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editThreadLabel">Comment</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
+              <input type="text" name="title" class="modal-body" value="<%= thread.title %>">
+              <input type="text" name="content" class="modal-body" value="<%= thread.content %>">
+              <input type="submit">
+            </form>
+            <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
+              <input type="submit" value="Delete Thread">
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } else { %>
+        <% } %>
   <hr />
 
 
   <div class="comments">
     <% thread.comments.forEach(comment=> { %>
-      <div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editComment">
-          Edit Comment
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="editComment" tabindex="-1" aria-labelledby="editCommentLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="editCommentLabel">Comment</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form method="POST" action="/comments/<%= comment.id %>/?_method=PUT">
-                <input type="text" name="content" class="modal-body" value="<%= comment.content %>">
-                <input type="submit">
-              </form>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p>Poster <%= comment.user_name %>
+     <p>Poster <%= comment.user_name %>
             <%= moment(comment.createdAt).calendar() %>
         </p>
         <p>
           <%= comment.content %>
         </p>
         <% if(user.id===comment.userId){ %>
-          <p>
-          <form method="POST" action="/threads/<%= thread.id %>/comments/<%= comment.id %>/?_method=PUT">
-            <label>Content</label>
-            <input type="text" name="content" value="<%= comment.content %>">
-            <input type="submit">
-          </form>
-          <form method="POST" action="/comments/<%= comment.id %>/?_method=DELETE">
-            <input type="submit" value="Delete">
-          </form>
-          </p>
+          <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editComment">
+              Edit Comment
+            </button>
+    
+            <!-- Modal -->
+            <div class="modal fade" id="editComment" tabindex="-1" aria-labelledby="editCommentLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editCommentLabel">Comment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form method="POST" action="/comments/<%= comment.id %>/?_method=PUT">
+                    <input type="text" name="content" class="modal-body" value="<%= comment.content %>">
+                    <input type="submit">
+                  </form>
+                  <form method="POST" action="/comments/<%= comment.id %>/?_method=DELETE">
+                    <input type="submit" value="Delete">
+                  </form>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+    
           <% } else { %>
             <% } %>
       </div>
       <% }) %>
   </div>
 
-  <form method="POST" action="/threads/<%= thread.id %>/comments">
-    <input type="hidden" id="userName" name="userName" value="<%= thread.user_name %>">
-    <input type="hidden" id="userId" name="userId" value="<%= thread.userId %>">
-    <label></label>
-    <input type="text" name="content">
-    <input type="submit">
-  </form>
+  <div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postComment">
+      Post Comment
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="postComment" tabindex="-1" aria-labelledby="postCommentLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="postCommentLabel">Post Comment</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form method="POST" action="/threads/<%= thread.id %>/comments">
+            <input type="hidden" id="userName" name="userName" value="<%= thread.user_name %>">
+            <input type="hidden" id="userId" name="userId" value="<%= thread.userId %>">
+            <input type="text" name="content" class="modal-body" value="">
+            <input type="submit">
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 </div>
