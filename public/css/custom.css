@@ -7,12 +7,47 @@ opacity: 70%;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: 200%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+}
+
+#standings{
+  color: white;
+}
+
+#Metropolitan{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#Atlantic{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#Central{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#Pacific{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .modal{
   --bs-modal-bg: rgb(28 78 112 / 8%) !important;
 
+}
+
+.table {
+  --bs-table-bg: rgb(28 78 112 / 40%) !important;
+}
+.card{
+  --bs-card-bg: rgb(28 78 112 / 40%) !important;
 }
 
 .threadDisplay{

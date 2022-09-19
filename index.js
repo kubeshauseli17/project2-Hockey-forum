@@ -40,10 +40,10 @@ app.use(async (req, res, next) => {
         // look up the user in the db
         const user = await db.users.findByPk(decryptedIdString);
         // mount the user on the res.locals
-        res.locals.user = user
+        res.locals.user = user;
     // if there is no cookie -- set the user to be null in the res.locals
     } else {
-        res.locals.user = null
+        res.locals.user = null;
     }
     // move on to the next route or middleware in the chain
     next()
