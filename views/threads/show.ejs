@@ -46,7 +46,7 @@
         <% } %>
   <hr />
 
-
+<% if(thread.comments){ %>
   <div class="comments">
     <% thread.comments.forEach(comment=> { %>
      <p>Poster <%= comment.user_name %>
@@ -91,6 +91,8 @@
       <% }) %>
   </div>
 
+<% } else { %>
+  <% } %>
   <div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postComment">
