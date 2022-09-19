@@ -1,3 +1,5 @@
+<% console.log(standings.records[0].teamRecords, "standings") %>
+
 <h2>Eastern</h2>
 
 <table class="Metropolitan table">
@@ -10,19 +12,33 @@
         <th scope="col">L</th>
         <th scope="col">OT</th>
         <th scope="col">PTS</th>
+        <th scope="col">P%</th>
+        <th scope="col">RW</th>
+        <th scope="col">ROW</th>
+        <th scope="col">GF</th>
+        <th scope="col">GA</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>(TEAM)</td>
-        <td>GP</td>
-        <td>W</td>
-        <td>L</td>
-        <td>OT</td>
-        <td>PTS</td>
+        
+    <% standings.records[0].teamRecords.forEach(team => {  %>
+        <% console.log(team.team.name) %>
+        <tr>
+        <th scope="row"><%- team.divisionRank %></th>
+        <td><%- team.team.name %></td>
+        <td><%- team.gamesPlayed %></td>
+        <td><%- team.leagueRecord.wins %></td>
+        <td><%- team.leagueRecord.losses %></td>
+        <td><%- team.leagueRecord.ot %></td>
+        <td><%- team.points %></td>
+        <td><%- team.pointsPercentage %></td>
+        <td><%- team.regulationWins %></td>
+        <td><%- team.row %></td>
+        <td><%- team.goalsScored %></td>GF
+        <td><%- team.goalsAgainst %></td>GA
       </tr>
-      <tr>
+   <% }) %>
+      <!-- <tr>
         <th scope="row">2</th>
         <td>(TEAM)</td>
         <td>GP</td>
@@ -84,9 +100,9 @@
         <td>L</td>
         <td>OT</td>
         <td>PTS</td>
-      </tr>
+      </tr> -->
     </tbody>
-  </table>
+  </table> -->
   <table class="Atlantic table">
     <thead>
       <tr>

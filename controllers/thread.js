@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
 
 // GET /threads/search - search all threads
 router.get('/search', (req, res) => {
-  console.log(req, "hola")
   let {term} = req.query;
   term = term.toLowerCase();
   console.log(term, "hola")
