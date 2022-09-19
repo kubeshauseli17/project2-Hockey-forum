@@ -45,6 +45,41 @@ router.post('/', async (req, res) => {
     }
 })
 
+ // PUT /threads/:id - Edit users 
+
+
+ router.put('/:id', async (req, res) => {
+    try {
+      db.users.findOne({
+        where: { id: req.params.id },
+      }).then((user) => {
+        user.update({
+          user_name: req.body.user_name,
+          email: req.body.email
+        }).then((result) => {
+          res.redirect('/');
+        });
+      });
+    }catch(err) {
+      console.log(err);
+    }
+  });
+
+
+  // DELETE /threads/:id - Delete user 
+  router.delete('/:id', async (req, res) => {
+    try {
+      const userToDelete = await db.users.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      res.redirect('/');
+    } catch(error) {
+      console.log(error);
+    }
+  });  
+
 //http://127.0.0.1:3000/users/login?message=Incorrect%20username%20or%20password
 // GET /users/login -- show a login form to the user
 router.get('/login', (req, res) => {

@@ -1,1 +1,36 @@
 <h3>Welcome to your profile <%= user.user_name %></h3>
+
+<div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editUser">
+      Edit User
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editUser" tabindex="-1" aria-labelledby="editUser" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editUserLabel">Edit User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form method="POST" action="/users/<%= user.id %>/?_method=PUT">
+            <input type="text" name="user_name" class="modal-body" value="<%= user.user_name %>"required/>
+            <input type="submit">
+          </form>
+          <form method="POST" action="/users/<%= user.id %>/?_method=PUT">
+            <input type="text" id="email" name="email" class="modal-body" value="<%= user.email %>"required/>
+            <input type="submit">
+          </form>
+          </form>
+          <form method="POST" action="/users/<%= user.id %>/?_method=DELETE">
+            <input type="submit" value="Delete User">
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
