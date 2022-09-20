@@ -1,85 +1,127 @@
 .navbar {
-opacity: 70%;
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-.wrapper {
-    background: url("/gettyimages-166319867-2048x2048.jpg");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: 200%;
-    background-repeat: no-repeat;
-}
-
-.modal{
-  --bs-modal-bg: rgb(28 78 112 / 8%) !important;
-
-}
-
-.threadDisplay{
-margin-left: 50px;
-}
-* {box-sizing: border-box;}
-
-/* Style the input container */
-.input-container {
-  display: flex;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-/* Style the form icons */
-.icon {
-  padding: 10px;
-  background: dodgerblue;
-  color: white;
-  min-width: 50px;
-  text-align: center;
-}
-
-/* Style the input fields */
-.input-field {
-  width: 100%;
-  padding: 10px;
-  outline: none;
-}
-
-.input-field:focus {
-  border: 2px solid dodgerblue;
-}
-
-/* Set a style for the submit button */
-.btn {
-  background-color: dodgerblue;
-  color: white;
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.btn:hover {
-  opacity: 1;
-}
-
-.threads {
-    margin-left: 50px;
+  opacity: 70%;
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+  .wrapper {
+      background: url("/gettyimages-166319867-2048x2048.jpg");
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 200%;
+      background-repeat: repeat;
+  }
+  
+  #standings{
     color: white;
-}
-
-.sitelinks {
-    justify-content: flex-end;
-}
-
-.sitename {                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-    padding-left: 20px;
-    justify-content: flex-start;
-}
-
-.sitename a {
-    color: black;
-}
-
-.homepage h3 {
-    justify-content: center;
-}
+  }
+  
+  #Metropolitan{
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+  #Atlantic{
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+  #Central{
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+  #Pacific{
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+  
+  #profileCard{
+    background: white;
+    margin-left: 510px;
+  }
+  
+  /* 
+  .modal{
+    --bs-modal-bg: rgb(28 78 112 / 8%);
+  } */
+  
+  .table {
+    align-self: flex-end;
+    --bs-table-bg: rgb(28 78 112 / 40%) !important;
+  }
+  .card{
+    --bs-card-bg: rgb(28 78 112 / 40%) !important;
+  }
+  
+  .threadDisplay{
+  margin-left: 50px;
+  }
+  * {box-sizing: border-box;}
+  
+  /* Style the input container */
+  .input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  /* Style the form icons */
+  .icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  /* Style the input fields */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border: 2px solid dodgerblue;
+  }
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  .threads {
+      margin-left: 50px;
+      color: white;
+  }
+  
+  .sitelinks {
+      justify-content: flex-end;
+  }
+  
+  .sitename {                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+      padding-left: 20px;
+      justify-content: flex-start;
+  }
+  
+  .sitename a {
+      color: black;
+  }
+  
+  .homepage h3 {
+      justify-content: center;
+  }
