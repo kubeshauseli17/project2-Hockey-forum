@@ -38,12 +38,20 @@ opacity: 70%;
   font-weight: bold;
 }
 
-.modal{
-  --bs-modal-bg: rgb(28 78 112 / 8%) !important;
 
+#profileCard{
+  background: white;
+  margin-left: 510px;
 }
 
+/* 
+.modal{
+  --bs-modal-bg: rgb(28 78 112 / 8%);
+
+} */
+
 .table {
+  align-self: flex-end;
   --bs-table-bg: rgb(28 78 112 / 40%) !important;
 }
 .card{
