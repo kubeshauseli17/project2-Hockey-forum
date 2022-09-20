@@ -1,8 +1,8 @@
 <div class="container">
-    <h1 class="mb-4">Threads</h1>
+    <h1 class="d-flex align-items-center card mb-4 gap-3" style="color:white";>Threads</h1>
     <div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newThread">
+        <button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#newThread">
           New Thread
         </button>
   
@@ -19,7 +19,7 @@
                 <input type="text" name="title" class="form-control" value="" required>
                 <h5 class="d-flex align-items-center modal-title p-3" id="threadContent">Thread Content</h5>
                 <textarea class="form-control p-3" id="message-text" required></textarea>
-                <input class="mx-auto" type="submit">
+                <input class="btn btn-primary me-md-2" type="submit">
               </form>
               </div>
             </div>
@@ -28,7 +28,7 @@
 </div>
 
 
-<div class="card mt-4">
+<div class="d-flex align-items-center card mt-4 gap-3">
     <h2><%= threads.title %></h2>
 
     <% threads.forEach(thread => { %>

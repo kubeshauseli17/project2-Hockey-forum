@@ -1,4 +1,4 @@
-<div class="threadDisplay" style="color:white;">
+<div class="d-flex align-items-center card mb-4 gap-3" style="color:white;">
   <h2>
     <%= thread.title %> <small>by <%= thread.user_name %></small>
   </h2>
@@ -15,33 +15,33 @@
 
     <div>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editThread">
+      <button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#newThread">
         Edit Thread
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="editThread" tabindex="-1" aria-labelledby="editThreadLabel" aria-hidden="true">
+      <div class="modal fade" id="newThread" tabindex="-1" role="dialog" aria-labelledby="newThreadLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="editThreadLabel">Comment</h5>
+              <h5 class="modal-title text-bg-light" id="newThreadLabel">Edit Thread</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="/threads/<%= thread.id %>/?_method=PUT">
-              <input type="text" name="title" class="modal-body" value="<%= thread.title %>">
-              <input type="text" name="content" class="modal-body" value="<%= thread.content %>">
-              <input type="submit">
+              <h5 class="d-flex align-items-center modal-title text-bg-light p-3" id="threadTitle">Thread Title</h5>
+              <input type="text" name="title" class="form-control text-bg-light" value="<%= thread.title %>" required>
+              <h5 class="d-flex align-items-center modal-title text-bg-light p-3" id="threadContent">Thread Content</h5>
+              <textarea type="text" name="content" class="form-control text-bg-light p-3" id="threadContent" required><%= thread.content %></textarea>
+              <input class="btn btn-primary me-md-2" type="submit">
             </form>
             <form method="POST" action="/threads/<%= thread.id %>/?_method=DELETE">
-              <input type="submit" value="Delete Thread">
+              <input type="submit" class="btn btn-primary me-md-2" value="Delete Thread">
             </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
             </div>
           </div>
         </div>
       </div>
+
       <% } else { %>
         <% } %>
   <hr />
@@ -56,9 +56,9 @@
           <%= comment.content %>
         </p>
         <% if(user.id===comment.userId){ %>
-          <div>
+          <div class="d-flex align-items-center card mb-4 gap-3">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editComment">
+            <button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#editComment">
               Edit Comment
             </button>
     
@@ -67,20 +67,16 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="editCommentLabel">Comment</h5>
+                    <h5 class="modal-title text-bg-light p-3" id="editCommentLabel">Comment</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <form method="POST" action="/comments/<%= comment.id %>/?_method=PUT">
-                    <input type="text" name="content" class="modal-body" value="<%= comment.content %>">
-                    <input type="submit">
+                    <textarea type="text" name="content" class="form-control text-bg-light p-3" id="commentContent" required><%= comment.content %></textarea>
+                    <input class="btn btn-primary me-md-2" type="submit">
                   </form>
                   <form method="POST" action="/comments/<%= comment.id %>/?_method=DELETE">
-                    <input type="submit" value="Delete">
+                    <input type="submit" class="btn btn-primary me-md-2" value="Delete">
                   </form>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    
-                  </div>
                 </div>
               </div>
             </div>
@@ -104,19 +100,16 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="postCommentLabel">Post Comment</h5>
+            <h5 class="modal-title text-bg-light p-3" id="postCommentLabel">Post Comment</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form method="POST" action="/threads/<%= thread.id %>/comments">
             <input type="hidden" id="userName" name="userName" value="<%= thread.user_name %>">
             <input type="hidden" id="userId" name="userId" value="<%= thread.userId %>">
-            <input type="text" name="content" class="modal-body" value="">
-            <input type="submit">
+            <textarea type="text" name="content" class="form-control text-bg-light p-3" required></textarea>
+            <input class="btn btn-primary me-md-2" type="submit">
           </form>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-          </div>
+          
         </div>
       </div>
     </div>

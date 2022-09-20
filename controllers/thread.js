@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
   let {term} = req.query;
   term = term.toLowerCase();
-  console.log(term, "hola")
   db.threads.findAll({ where: { content: { [Op.like]: `%${term}%` }}})
     .then(thread => res.redirect(`threads/${req.params.id}`, { thread }))
     .catch(err => console.log(err));
