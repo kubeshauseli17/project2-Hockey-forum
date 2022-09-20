@@ -1,0 +1,43 @@
+<div class="container">
+    <h1 class="d-flex align-items-center card mb-4 gap-3" style="color:white";>Threads</h1>
+    <div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#newThread">
+          New Thread
+        </button>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="newThread" tabindex="-1" role="dialog" aria-labelledby="newThreadLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newThreadLabel">Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="/threads/" method="POST">
+                <h5 class="d-flex align-items-center modal-title p-3" id="threadTitle">Thread Title</h5>
+                <input type="text" name="title" class="form-control" value="" required>
+                <h5 class="d-flex align-items-center modal-title p-3" id="threadContent">Thread Content</h5>
+                <textarea class="form-control p-3" id="message-text" required></textarea>
+                <input class="btn btn-primary me-md-2" type="submit">
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+<div class="d-flex align-items-center card mt-4 gap-3">
+    <h2><%= threads.title %></h2>
+
+    <% threads.forEach(thread => { %>
+        <div>
+            <a href="http://localhost:3000/threads/<%= thread.id %>" style="color:white;"><h3><%= thread.title %></h3></a>
+    
+            <p>Poster <%= thread.user_name %> <%= moment(thread.createdAt).calendar() %></p>
+            
+        
+        </div>
+    <% }) %>
+</div>

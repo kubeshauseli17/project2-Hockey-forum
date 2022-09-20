@@ -12,13 +12,11 @@
     <%= thread.content %>
   </p>
   <% if(user.id===thread.userId){ %>
-
     <div>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editThread">
         Edit Thread
       </button>
-
       <!-- Modal -->
       <div class="modal fade" id="editThread" tabindex="-1" aria-labelledby="editThreadLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -37,7 +35,6 @@
             </form>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
             </div>
           </div>
         </div>
@@ -90,7 +87,6 @@
       </div>
       <% }) %>
   </div>
-
 <% } else { %>
   <% } %>
   <div>
@@ -108,8 +104,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form method="POST" action="/threads/<%= thread.id %>/comments">
-            <input type="hidden" id="userName" name="userName" value="<%= user.user_name %>">
-            <input type="hidden" id="userId" name="userId" value="<%= user.id %>">
+            <input type="hidden" id="userName" name="userName" value="<%= thread.user_name %>">
+            <input type="hidden" id="userId" name="userId" value="<%= thread.userId %>">
             <input type="text" name="content" class="modal-body" value="">
             <input type="submit">
           </form>

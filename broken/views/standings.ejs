@@ -1,0 +1,147 @@
+<table class="table table-bordered">
+  <h2>Eastern Conference</h2>
+
+  <table id="Metropolitan" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Metropolitan</th>
+          <th scope="col">Team</th>
+          <th scope="col">GP</th>
+          <th scope="col">W</th>
+          <th scope="col">L</th>
+          <th scope="col">OT</th>
+          <th scope="col">PTS</th>
+          <th scope="col">RW</th>
+          <th scope="col">ROW</th>
+          <th scope="col">GF</th>
+          <th scope="col">GA</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% standings.records[0].teamRecords.forEach(team => {  %>
+          <% console.log(team.team.name) %>
+          <tr>
+          <th scope="row"><%- team.divisionRank %></th>
+          <td><%- team.team.name %></td>
+          <td><%- team.gamesPlayed %></td>
+          <td><%- team.leagueRecord.wins %></td>
+          <td><%- team.leagueRecord.losses %></td>
+          <td><%- team.leagueRecord.ot %></td>
+          <td><%- team.points %></td>
+          <td><%- team.regulationWins %></td>
+          <td><%- team.row %></td>
+          <td><%- team.goalsScored %></td>
+          <td><%- team.goalsAgainst %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+    </table>
+    <table id="Atlantic" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Atlantic</th>
+          <th scope="col">Team</th>
+          <th scope="col">GP</th>
+          <th scope="col">W</th>
+          <th scope="col">L</th>
+          <th scope="col">OT</th>
+          <th scope="col">PTS</th>
+          <th scope="col">RW</th>
+          <th scope="col">ROW</th>
+          <th scope="col">GF</th>
+          <th scope="col">GA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% standings.records[1].teamRecords.forEach(team => {  %>
+          <tr>
+          <th scope="row"><%- team.divisionRank %></th>
+          <td><%- team.team.name %></td>
+          <td><%- team.gamesPlayed %></td>
+          <td><%- team.leagueRecord.wins %></td>
+          <td><%- team.leagueRecord.losses %></td>
+          <td><%- team.leagueRecord.ot %></td>
+          <td><%- team.points %></td>
+          <td><%- team.regulationWins %></td>
+          <td><%- team.row %></td>
+          <td><%- team.goalsScored %></td>
+          <td><%- team.goalsAgainst %></td>
+        </tr>
+     <% }) %>
+      </tbody>
+    </table>
+  
+    <h2>Western Conference</h2>
+  
+    <table id="Central" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Central</th>
+          <th scope="col">Team</th>
+          <th scope="col">GP</th>
+          <th scope="col">W</th>
+          <th scope="col">L</th>
+          <th scope="col">OT</th>
+          <th scope="col">PTS</th>
+          <th scope="col">RW</th>
+          <th scope="col">ROW</th>
+          <th scope="col">GF</th>
+          <th scope="col">GA</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% standings.records[2].teamRecords.forEach(team => {  %>
+              <% console.log(team.team.name) %>
+              <tr>
+              <th scope="row"><%- team.divisionRank %></th>
+              <td><%- team.team.name %></td>
+              <td><%- team.gamesPlayed %></td>
+              <td><%- team.leagueRecord.wins %></td>
+              <td><%- team.leagueRecord.losses %></td>
+              <td><%- team.leagueRecord.ot %></td>
+              <td><%- team.points %></td>
+              <td><%- team.regulationWins %></td>
+              <td><%- team.row %></td>
+              <td><%- team.goalsScored %></td>
+              <td><%- team.goalsAgainst %></td>
+            </tr>
+            <% }) %>
+      </tbody>
+    </table>
+    <table id="Pacific" class="table  table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Pacific</th>
+          <th scope="col">Team</th>
+          <th scope="col">GP</th>
+          <th scope="col">W</th>
+          <th scope="col">L</th>
+          <th scope="col">OT</th>
+          <th scope="col">PTS</th>
+          <th scope="col">RW</th>
+          <th scope="col">ROW</th>
+          <th scope="col">GF</th>
+          <th scope="col">GA</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% standings.records[3].teamRecords.forEach(team => {  %>
+              <% console.log(team.team.name) %>
+              <tr>
+              <th scope="row"><%- team.divisionRank %></th>
+              <td><%- team.team.name %></td>
+              <td><%- team.gamesPlayed %></td>
+              <td><%- team.leagueRecord.wins %></td>
+              <td><%- team.leagueRecord.losses %></td>
+              <td><%- team.leagueRecord.ot %></td>
+              <td><%- team.points %></td>
+              <td><%- team.regulationWins %></td>
+              <td><%- team.row %></td>
+              <td><%- team.goalsScored %></td>
+              <td><%- team.goalsAgainst %></td>
+            </tr>
+            <% }) %>
+      </tbody>
+    </table>
+  
+</table>

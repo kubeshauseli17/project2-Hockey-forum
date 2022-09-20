@@ -7,12 +7,55 @@ opacity: 70%;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: 200%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
-.modal{
-  --bs-modal-bg: rgb(28 78 112 / 8%) !important;
+#standings{
+  color: white;
+}
 
+#Metropolitan{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#Atlantic{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#Central{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#Pacific{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+
+#profileCard{
+  background: white;
+  margin-left: 510px;
+}
+
+/* 
+.modal{
+  --bs-modal-bg: rgb(28 78 112 / 8%);
+
+} */
+
+.table {
+  align-self: flex-end;
+  --bs-table-bg: rgb(28 78 112 / 40%) !important;
+}
+.card{
+  --bs-card-bg: rgb(28 78 112 / 40%) !important;
 }
 
 .threadDisplay{

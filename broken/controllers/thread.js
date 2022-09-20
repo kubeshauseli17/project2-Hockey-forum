@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
   let {term} = req.query;
   term = term.toLowerCase();
-  console.log(term, "hola")
   db.threads.findAll({ where: { content: { [Op.like]: `%${term}%` }}})
     .then(thread => res.redirect(`threads/${req.params.id}`, { thread }))
     .catch(err => console.log(err));
@@ -49,7 +48,7 @@ router.post('/', (req, res) => {
   // GET /threads/new - display form for creating new threads
   router.get('/new', (req, res) => {
     if  (res.locals.user){
-      console.log("cookiebs", res.locals.user);
+      console.log("cookie", res.locals.user);
         res.render('threads/new', { user: res.locals.user});
     }
   });
@@ -61,10 +60,10 @@ router.post('/', (req, res) => {
       include: [db.users, db.comments]
     })
     .then((thread) => {
-      console.log(thread, thread.comments);
+      console.log(thread, thread.comments, "help");
       if (!thread) throw Error();
       console.log(thread.id);
-      res.render('threads/show', { thread: thread, user: res.locals.user });
+      res.render('threads/show', { thread: thread });
     })
     .catch((error) => {
       console.log(error);
@@ -84,7 +83,7 @@ router.post('/', (req, res) => {
           userId: req.body.userId,
           content: req.body.content,
           threadId: req.params.id
-        });
+        })
         res.status(200).redirect(`/threads/${req.params.id}`);
       }catch(err){
         console.log(err);
@@ -120,7 +119,7 @@ router.post('/', (req, res) => {
         where: {
           id: req.params.id
         }
-      });
+      })
       res.redirect('/');
     } catch(error) {
       console.log(error);

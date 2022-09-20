@@ -15,7 +15,7 @@ content: VARCHAR 255
 thread_id: INT
 
 
-sequelize model:create --name comments --attributes user_name:string,userId:integer,content:string,threadId:integer
+sequelize model:create --name comments --attributes user_name:string,user_id:integer,content:string,thread_id:integer
 
 
 THREADS MODEL
@@ -25,4 +25,4 @@ user_id: INT
 content: VARCHAR 255
 title: VARCHAR 255
 
-sequelize model:create --name threads --attributes user_name:string,userId:integer,content:string,title:string
+sequelize model:create --name threads --attributes user_name:string,user_id:integer,content:string,title:string
