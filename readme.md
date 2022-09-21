@@ -6,15 +6,42 @@ was my first love in life. I've been a die hard Buffalo Sabres fan since before 
 been a member of a hockey forum https://forums.hfboards.com/ for close to 20 years at this point. So it
  seemed like a good choice for a theme for a blog, especially with the season right around the corner.
 
+App description
+-------------------------
+My app ended up roughly like I was planning. It's a simple forum where you can register as a user, post
+threads about what's happeneing around the league and comment on other users posts. I hav ethe NHL API 
+setup to pull the latest standings for teams in the league on the standings page.
+
+App Links
+-------------------------
+https://github.com/kubeshauseli17/project2-Hockey-forum
+https://app.koyeb.com/apps/402d1d41-c54d-43d5-89ad-e697d1d2e3eb/services/f110c434-ec05-4921-b316-fce5a095c5b1
+https://app.supabase.com/project/fxbzfslsmgcpzguzkgid/settings/database
+
+
+Installation
+-------------------------
+To setup this app 
+
+* Fork and clone this repository
+* Run `npm install` to install dependencies
+* Setup your database (this app already has two existing models)
+  * Run `sequelize db:create` to create the database
+  * Run `sequelize db:migrate` to run migrations
+* Use `npx nodemon` (or just `nodemon` if you installed it globally) to start your application
+
+
 
 API
 -------------------------
-The API i am planning on using is called StatsAPI NHL. https://statsapi.web.nhl.com/api/v1/schedule It has
+The API I am planning on using is called the NHL API. https://github.com/dword4/nhlapi It has
 player stats and team standings going back years. It also has scores for all of the current games and 
 already played games. Seing as the season hasn't started yet I'm planning on using it for the last few years
 standings and maybe the scores for any preseason games scheduled to be played. Fairly limited scope for my 
 application, but interesting to see how analytics departments track data betwen leagues in real time.
 
+Example JSON
+-------------
 {
 "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team
  marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved.",
@@ -87,7 +114,7 @@ Tech Used in Project
 -------------------------
 HTML - CSS BOOTSTRAP - Javascript 
 Express - EJS - Sequelize
-Postgres - StatsAPI NHL
+Postgres - NHL API
 Thunder Client
 
 
@@ -117,8 +144,6 @@ As a user I want to login and post my thoughts about the game I'm watching.
 
 As a developer I want to be able to verify the users identity and log their content sitewide.
 
-As a visitor I'd like to browse the forum. If I appreciate the content I'd like to become a member.
-
 As the thread poster I'd like to moderate the posts on my thread. Deleting posts or updating my own 
 to my needs.
 
@@ -133,9 +158,7 @@ Log new users information and add it to the users table.
 
 Track signed in users. Allow them to post new threads and comment on other's threads. Update database with their content.
 
-Setup StatsAPI NHL Pull standings and Scores from it. Use EJS to pipe the scores into a sidebar. Standings onto a Standings page
-
-Redirect Visitors to the Signup page if they try to post a thread or a comment.
+Setup NHL API Pull standings from it. Use EJS to pipe the scores into a sidebar. Standings onto a Standings page
 
 Setup a search bar for users to search the database for content.
 
@@ -144,7 +167,9 @@ Stretch Goals
 -------------------------
 Style page nicely
 
-Add Player Stats page. Pipe information in from API-HOCKEY
+Add Player Stats page. Pipe information in from NHL API
+
+Redirect Visitors to the Signup page if they try to post a thread or a comment.
 
 Figure out how to add user_avatar to users table in bytea
 
@@ -152,3 +177,15 @@ Figure out how to add user_avatar to users table in bytea
 Roadblocks
 -------------------------
 Getting everything linked up properly will probably be a pain along with user authentication possibly
+
+Reflections
+-------------------------
+This project really was a great way to solidify all of the concepts taught in this chapter. Getting everything linked up and
+working properly was really a pain. My users table ended up getting corrupted at one point and having to trouble shoot what 
+was wrong with my previously functional page was a real enlightening expeience. That being said I'm fairly happy with the 
+results of this project, basic though it may be.
+
+Sources
+-------------------------
+This source was invaluble in my ability to understand and get the NHL API working. It's an undocumented but free API so thankfully
+there is a small community of people who've dug into it and documented how it works.
