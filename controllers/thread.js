@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
       userId: req.body.userId
     })
     .then((post) => {
-      res.redirect('/');
+      res.redirect(`/threads/${post.id}`);
     })
     .catch((error) => {
     console.log(error);

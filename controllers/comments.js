@@ -29,7 +29,7 @@ router.put('/:id', async (req, res) => {
         comment.update({
           content: req.body.content
         }).then((result) => {
-          res.redirect('/threads/');
+          res.redirect(`/threads/${result.threadId}`);
         });
       });
     }catch(err) {
@@ -46,7 +46,7 @@ router.put('/:id', async (req, res) => {
             comment.destroy({
                 id: req.params.id
             }).then((result) => {
-                res.redirect('/threads/');
+                res.redirect(`/threads/${comment.threadId}`);
             });
         });
     } catch(error) {

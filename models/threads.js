@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.threads.hasMany(models.comments)
-      models.threads.belongsTo(models.users)
+      models.threads.hasMany(models.comments);
+      models.threads.belongsTo(models.users);
     }
   }
   threads.init({
