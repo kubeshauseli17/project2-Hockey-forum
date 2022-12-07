@@ -38,7 +38,7 @@
 
     <% threads.forEach(thread => { %>
         <div>
-            <a href="http://localhost:3000/threads/<%= thread.id %>" style="color:white;"><h3><%= thread.title %></h3></a>
+            <a href="http://project2-kubeshauseli17.koyeb.app/threads/<%= thread.id %>" style="color:white;"><h3><%= thread.title %></h3></a>
     
             <pd-flex>Poster <%= thread.user_name %> <%= moment(thread.createdAt).calendar() %></p>
             
