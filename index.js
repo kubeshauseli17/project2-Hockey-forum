@@ -1,5 +1,5 @@
 // required packages
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
