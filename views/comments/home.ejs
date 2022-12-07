@@ -3,7 +3,7 @@
 
     <% comments.forEach(comment => { %>
         <div>
-            <a href="http://localhost:3000/threads/<%= comments.threadId %>" style="color:white;"><h3><%= comments.contents %></h3></a>
+            <a href="http://project2-kubeshauseli17.koyeb.app/threads/<%= comments.threadId %>" style="color:white;"><h3><%= comments.contents %></h3></a>
     
             <p>Poster <%= comments.user_name %> <%= moment(comment.createdAt).calendar() %></p>
             
